@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent should match snapshot 1`] = `
+<app-login
+  __ngContext__={[Function Number]}
+  authService={[Function AuthService]}
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  hide={[Function Boolean]}
+  onError="false"
+  router={[Function Router]}
+  sessionService={[Function SessionService]}
+>
+  <div
+    class="login"
+    fxlayout="row"
+    fxlayoutalign="center center"
+  >
+    <mat-card>
+      <mat-card-header
+        fxlayoutalign="center center"
+      >
+        <mat-card-title>
+          Login
+        </mat-card-title>
+      </mat-card-header>
+      <form
+        class="login-form ng-untouched ng-pristine ng-invalid"
+        novalidate=""
+      >
+        <mat-card-content
+          fxlayout="column"
+        >
+          <mat-form-field
+            fxflex=""
+          >
+            <input
+              class="ng-untouched ng-pristine ng-invalid"
+              formcontrolname="email"
+              matinput=""
+              placeholder="Email"
+            />
+          </mat-form-field>
+          <mat-form-field
+            fxflex=""
+          >
+            <input
+              class="ng-untouched ng-pristine ng-invalid"
+              formcontrolname="password"
+              matinput=""
+              placeholder="Password"
+              type="password"
+            />
+            <button
+              aria-label="Hide password"
+              aria-pressed="true"
+              mat-icon-button=""
+              matsuffix=""
+            >
+              <mat-icon>
+                visibility_off
+              </mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+        <button
+          color="primary"
+          disabled=""
+          mat-raised-button=""
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</app-login>
+`;
