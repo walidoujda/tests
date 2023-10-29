@@ -14,10 +14,10 @@ describe('Register Component', () => {
   });
 
   it('should submit the registration form with valid data', () => {
-    cy.get('input[ng-reflect-name="email"]').should('exist').type('test7777@example.com');
+    cy.get('input[ng-reflect-name="email"]').should('exist').type('walidzerrifi@example.com');
     cy.get('input[ng-reflect-name="firstName"]').should('exist').type('walid');
-    cy.get('input[ng-reflect-name="lastName"]').should('exist').type('Doe');
-    cy.get('input[ng-reflect-name="password"]').should('exist').type('password123');
+    cy.get('input[ng-reflect-name="lastName"]').should('exist').type('zerrifi');
+    cy.get('input[ng-reflect-name="password"]').should('exist').type('test!1234');
 
     cy.get('button[type="submit"]').click();
 
@@ -25,7 +25,7 @@ describe('Register Component', () => {
   });
 
   it('should display an error message for invalid input', () => {
-    cy.get('input[ng-reflect-name="email"]').should('exist').type('walidzerrifi@gmail.com');
+    cy.get('input[ng-reflect-name="email"]').should('exist').type('walidzerrifi@example.com');
     cy.get('input[ng-reflect-name="firstName"]').should('exist').type('walid');
     cy.get('input[ng-reflect-name="lastName"]').should('exist').type('Doe');
     cy.get('input[ng-reflect-name="password"]').should('exist').type('password123');

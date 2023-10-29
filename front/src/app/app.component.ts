@@ -15,9 +15,17 @@ export class AppComponent {
     private authService: AuthService,
     private router: Router,
     private sessionService: SessionService) {
+      if(sessionStorage.getItem('isLogged') === 'true' && sessionStorage.getItem('currentUser') != null){
+        const currentUserData = sessionStorage.getItem('currentUser');
+        this.sessionService.isLogged = true;
+        if (currentUserData !== null) {
+          this.sessionService.sessionInformation = JSON.parse(currentUserData);
+        }
+      }
   }
 
   public $isLogged(): Observable<boolean> {
+    console.log(this.sessionService.$isLogged())
     return this.sessionService.$isLogged();
   }
 
