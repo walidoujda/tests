@@ -51,12 +51,12 @@ public class AuthControllerIntegrationTest {
         public void testAuthenticateUser() throws Exception {
                 // Mocked request payload
                 LoginRequest loginRequest = new LoginRequest();
-                loginRequest.setEmail("yoga@studio.com");
+                loginRequest.setEmail("walidzerrifi@example.com");
                 loginRequest.setPassword("test!1234");
                 Optional<User> opUser = null;
                 User user = new User();
                 user.setId(1L);
-                user.setEmail("yoga@studio.com");
+                user.setEmail("walidzerrifi@example.com");
                 user.setFirstName("Test");
                 user.setLastName("User");
                 user.setPassword("test!1234");
@@ -86,7 +86,7 @@ public class AuthControllerIntegrationTest {
         @Test
         public void testRegisterUser() throws Exception {
                 SignupRequest signupRequest = new SignupRequest();
-                signupRequest.setEmail("walid5@example.com");
+                signupRequest.setEmail("walid9@example.com");
                 signupRequest.setPassword("password");
                 signupRequest.setFirstName("John");
                 signupRequest.setLastName("Doe");
@@ -98,6 +98,22 @@ public class AuthControllerIntegrationTest {
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.message", is("User registered successfully!")));
 
+        }
+
+        @Test
+        public void testRegisterUserWithEmailExists() throws Exception {
+                SignupRequest signupRequest = new SignupRequest();
+                signupRequest.setEmail("walid9@example.com");
+                signupRequest.setPassword("password");
+                signupRequest.setFirstName("John");
+                signupRequest.setLastName("Doe");
+
+                this.mockMvc.perform(
+                                MockMvcRequestBuilders.post("/api/auth/register")
+                                                .contentType(MediaType.APPLICATION_JSON)
+                                                .content(objectMapper.writeValueAsString(signupRequest)))
+                                .andExpect(status().isBadRequest())
+                                .andExpect(jsonPath("$.message", is("Error: Email is already taken!")));
         }
         /*
          * @Test
