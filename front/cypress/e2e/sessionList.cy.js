@@ -3,7 +3,7 @@ describe('Tests d\'intégration - ListComponent', () => {
 
   beforeEach(() => {
     cy.visit('/login');
-    cy.get('input[ng-reflect-name="email"]').should('exist').type('walidzerrifi@gmail.com');
+    cy.get('input[ng-reflect-name="email"]').should('exist').type('walidzerrifiCY@example.com');
     cy.get('input[ng-reflect-name="password"]').should('exist').type('test!1234');
 
     cy.get('button[type="submit"]').should('not.be.disabled').click();
